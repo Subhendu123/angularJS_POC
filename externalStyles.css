@@ -1,0 +1,50 @@
+label{
+	font-size: large;
+}
+
+span{
+	color:red;
+}
+
+/* form {
+	text-align: justify;
+    font-size: 20px;
+    font-style: oblique;
+    font-family: cursive;
+    color: brown;
+}
+input[type=text],
+input[type=submit],
+input[type=date] ,
+textarea,
+select{
+	border-color: brown;
+    border-width: 2px;
+    border-radius: 6px;
+    border-style: solid;
+}
+
+input[type=text]{
+	height: 19px;
+    width: 30em;
+}
+select{
+	height: 25px;
+	width: 20em;
+}
+option{
+	font-family: monospace;
+    color: brown;
+    font-size: 15px;
+    font-weight: bold;
+}
+input[type=submit]{
+	background-color: brown;
+    height: 29px;
+    width: 10em;
+    text-align: center;
+    font-size: 15px;
+    font-family: monospace;
+    font-weight: bold;
+    color: white;
+} */

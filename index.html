@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>angularJS POC</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="externalStyles.css"></link>
+<script type="text/javascript" src="../library/angular.js"></script>
+<script src="http://ui-grid.info/release/ui-grid.js"></script>
+
+<link rel="stylesheet" href="http://ui-grid.info/release/ui-grid.css" type="text/css">
+
+<script type = "text/javascript" src="app.js"></script>
+<script type="text/javascript" src="formSubmission.controller.js"></script>
+</head>
+<body ng-app="Forms" ng-controller="formController">
+	<div class="row" >
+	<div class="col-md-1"></div>
+	<div class="col-md-5">
+	<div class="jumbotron" style="background-color: #bad7f1;">
+		<h2 class="text-center" style="font-weight: bold">Employment Form</h2>
+	
+	
+	<div class="container">
+		<form ng-submit="saveDetails()">
+			<div class="form-group">
+				<label>Employee Name:</label>
+				<input type="text" class="form-control" placeholder="Enter Your Full Name" ng-model="fullName" ng-change="displayErrorName= false;">
+				<span ng-show="displayErrorName">Please Enter a Valid Name!</span>
+			</div>
+			<div class="form-group">
+			<label>Address:</label>
+			<textarea class="form-control" ng-model="address" placeholder="Enter Your Address" ng-change="displayErrorAddress= false;"></textarea>
+			<span ng-show="displayErrorAddress">Please Enter a Valid Address!</span>
+			</div>
+			<div class="form-group ">
+			<label>Date Of Birth:</label>
+			<input type="date" class="form-control" ng-model="birthDay" ng-change="displayErrorDate = false;"/>
+			<span ng-show="displayErrorDate">Please Enter a Valid Date!</span>
+			</div>
+			<div class="form-group">
+			<label>Employment Status:</label><br/>
+			<input type="radio" ng-model="status" class=""  value="Contractor" ng-change="displayErrorStatus = false;"/>  <strong>Contractor</strong><br/>
+			<input type="radio" ng-model="status" class="" value="Permanent" ng-change="displayErrorStatus = false;"/>  <strong>Permanent</strong><br/>
+			<span ng-show="displayErrorStatus">Please Select Your Employment Status!</span>
+			</div>
+			
+			<div class="form-group">
+			<label>Office Location:</label>
+			<select class="form-control" ng-model="employeeLocation" ng-change="displayErrorLocation = false;">
+			<option ng-repeat="employeeLocation in availableLocations">{{employeeLocation}}</option>
+			</select>
+			<span ng-show="displayErrorLocation">Please Select Location!</span>
+			</div>
+			<div class="form-group">
+			<label>Total Experience in Years:</label><br/>
+			<input type="checkbox" ng-model="exp.basic"class="" ng-change="displayErrorExp=false;"><strong>0-2</strong><br/>
+			<input type="checkbox" ng-model="exp.inter"class="" ng-change="displayErrorExp=false;"><strong>2-4</strong><br/>
+			<input type="checkbox" ng-model="exp.advanced"class="" ng-change="displayErrorExp=false;"><strong>4-6</strong><br/>
+			<input type="checkbox" ng-model="exp.prof"class="" ng-change="displayErrorExp=false;"><strong>6+</strong><br/>
+			<span ng-show="displayErrorExp">Atleast check one of the box!</span>
+			</div>
+			<div class="form-group">
+			<button type="submit" class="btn btn-primary btn-block btn-lg">Submit</button>
+			</div>
+		</form>
+	</div>
+	</div>
+	</div>
+	
+	<div class="col-md-6">
+	<div ui-grid="gridOptions" class="myGrid" ng-if="detailsSaved"></div>
+	</div>
+	
+	</div>
+	
+</body>
+</html>
